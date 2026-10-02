@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "review-bridge"
+version = "0.1.0"
+description = "Review secretary for a family noodle restaurant: Chinese briefings, bad-review alerts, English reply drafts — powered by a local Gemma model"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "hao li"}]
+keywords = ["hacktoberfest", "gemma", "ollama", "google-maps", "reviews", "serpapi"]
+
+[project.scripts]
+review-bridge = "review_bridge.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/hahahahahahahahah6/review-bridge"
+
+[tool.setuptools.packages.find]
+include = ["review_bridge*"]
