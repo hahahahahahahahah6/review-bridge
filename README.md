@@ -43,6 +43,10 @@ Built for the [Hacktoberfest 2026 Weekend Challenge](https://dev.to/challenges/h
 
 ## Quickstart (Windows laptop)
 
+**One-click:** download [`run.bat`](https://github.com/hahahahahahahahah6/review-bridge/raw/main/run.bat) and double-click it. It checks everything for you — Ollama installed? `gemma3:4b` downloaded? `SERPAPI_KEY` set? — then installs/updates `review-bridge` from PyPI and starts the server at http://localhost:8080.
+
+Manual steps if you prefer:
+
 ```powershell
 # 1. Install Ollama from https://ollama.com, then:
 ollama pull gemma3:4b
