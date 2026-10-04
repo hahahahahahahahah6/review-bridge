@@ -1,0 +1,2 @@
+[console_scripts]
+review-bridge = review_bridge.cli:main

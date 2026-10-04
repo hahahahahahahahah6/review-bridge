@@ -20,3 +20,6 @@ Homepage = "https://github.com/hahahahahahahahah6/review-bridge"
 
 [tool.setuptools.packages.find]
 include = ["review_bridge*"]
+
+[tool.setuptools.package-data]
+review_bridge = ["data/*.json"]

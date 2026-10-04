@@ -1,3 +1,16 @@
+Metadata-Version: 2.4
+Name: review-bridge
+Version: 0.1.0
+Summary: Review secretary for a family noodle restaurant: Chinese briefings, bad-review alerts, English reply drafts — powered by a local Gemma model
+Author: hao li
+License: MIT
+Project-URL: Homepage, https://github.com/hahahahahahahahah6/review-bridge
+Keywords: hacktoberfest,gemma,ollama,google-maps,reviews,serpapi
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
 # review-bridge
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)

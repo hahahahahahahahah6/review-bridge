@@ -22,8 +22,10 @@ from .pipeline import build_digest
 from .serpapi import ReviewBridgeError, fetch_reviews, parse_serpapi_payload
 from .server import Bridge, render_page, serve
 
-FIXTURE = os.path.join(os.path.dirname(__file__), "..", "tests", "fixtures",
-                       "serpapi_reviews.json")
+from importlib import resources as _resources
+
+FIXTURE_PKG = "review_bridge"
+FIXTURE_NAME = "data/mock_reviews.json"
 
 
 def _client(args):
@@ -33,8 +35,9 @@ def _client(args):
 
 
 def _mock_reviews():
-    with open(FIXTURE, encoding="utf-8") as f:
-        return parse_serpapi_payload(json.load(f))
+    # fixture 打包进 wheel（review_bridge/data/），不再依赖 tests/ 目录
+    raw = _resources.files(FIXTURE_PKG).joinpath(FIXTURE_NAME).read_text(encoding="utf-8")
+    return parse_serpapi_payload(json.loads(raw))
 
 
 def cmd_fetch(args) -> int:
