@@ -72,7 +72,16 @@ def parse_serpapi_payload(data: dict) -> list[Review]:
 def resolve_place_id(query: str, api_key: str) -> str:
     """Turn a restaurant name into a SerpApi place_id via google_maps search."""
     data = _get("google_maps", {"q": query, "type": "search"}, api_key)
-    results = data.get("place_results") or data.get("local_results") or []
+    pr = data.get("place_results")
+    # 精确命中时 place_results 是单个 dict，不是 list
+    if isinstance(pr, dict) and pr.get("place_id"):
+        return str(pr["place_id"])
+    results: list = []
+    if isinstance(pr, list):
+        results.extend(pr)
+    lr = data.get("local_results")
+    if isinstance(lr, list):
+        results.extend(lr)
     if not results or not isinstance(results[0], dict):
         raise ReviewBridgeError(f"No place found for query: {query!r}")
     place_id = results[0].get("place_id")
